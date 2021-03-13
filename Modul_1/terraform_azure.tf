@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
     location = "northeurope"
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
 
@@ -24,7 +24,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     resource_group_name = azurerm_resource_group.myterraformgroup.name
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
 
@@ -44,7 +44,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     allocation_method            = "Dynamic"
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
 
@@ -67,7 +67,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     }
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
 
@@ -85,7 +85,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     }
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
 
@@ -114,7 +114,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     account_replication_type    = "LRS"
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
 
@@ -161,6 +161,6 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
     }
 
     tags = {
-        environment = "Terraform Demo"
+        environment = ".easec Terraform Demo"
     }
 }
