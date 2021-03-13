@@ -127,7 +127,7 @@ output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
 
 # Create virtual machine
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
-    name                  = "myVM"
+    name                  = "easec-VMLinux"
     location              = "northeurope"
     resource_group_name   = azurerm_resource_group.myterraformgroup.name
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
@@ -146,14 +146,14 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         version   = "latest"
     }
 
-    computer_name  = "myvm"
+    computer_name  = "easec-VMLinux"
     admin_username = "azureuser"
-    admin_password = "Pa55w.rd"
-    # disable_password_authentication = true
+    admin_password = "Pa55w.rd1234"
+    disable_password_authentication = false
 
     # admin_ssh_key {
     #   username       = "azureuser"
-    #    ublic_key     = tls_private_key.example_ssh.public_key_openssh
+    #   public_key     = tls_private_key.example_ssh.public_key_openssh
     # }
 
     boot_diagnostics {
