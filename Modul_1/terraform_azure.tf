@@ -55,7 +55,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     resource_group_name = azurerm_resource_group.myterraformgroup.name
 
     security_rule {
-        name                       = "SSH&http"
+        name                       = "SSH_HTTP"
         priority                   = 1001
         direction                  = "Inbound"
         access                     = "Allow"
