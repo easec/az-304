@@ -1,0 +1,29 @@
+azcopy i katalogen C:\azcopy
+
+Skapa Storage Account
+
+Skapa container
+
+Role Assignments Storage Blob Data Contributor & Storage Blob Data Owner
+
+Skapa lokal katalog med filer
+
+azcopy login
+
+******************************   to upload all files in a folder to Blob storage on Windows or Linux  *****************************************
+
+azcopy copy "c:\azcopy" "https://azcopyeasec1sa.blob.core.windows.net/easec" --recursive=true
+
+******************************   to sync basec on  last-modified time  *****************************************
+
+azcopy sync "c:\azcopy\bilder" "https://azcopyeasec1sa.blob.core.windows.net/easec" --recursive=true
+
+******************************   script.bat  *****************************************
+
+
+
+******************************   scheduler  *****************************************
+
+schtasks /CREATE /SC minute /MO 1 /TN "AzCopy Script" /TR C:\azcopy\script.bat
+
+
