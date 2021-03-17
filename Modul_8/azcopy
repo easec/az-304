@@ -52,3 +52,11 @@ cd labb
 ******************************   copy file(s)  *****************************************
 
 Get-ChildItem -File -Recurse | Set-AzStorageBlobContent -Container "easec" -Context $storcontext
+
+******************************   avsluta container  *****************************************
+
+exit
+
+******************************   plocka bort container  *****************************************
+
+docker remove azpower
