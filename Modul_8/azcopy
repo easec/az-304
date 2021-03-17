@@ -48,6 +48,6 @@ $storcontext=$uploadstorage.Context
 
 cd labb
 
-******************************   copy file  *****************************************
+******************************   copy file(s)  *****************************************
 
 Get-ChildItem -File -Recurse | Set-AzStorageBlobContent -Container "easec" -Context $storcontext
