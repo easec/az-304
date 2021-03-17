@@ -14,7 +14,8 @@ azcopy login
 
 ******************************   to upload all files in a folder to Blob storage on Windows or Linux  *****************************************
 
-azcopy copy "c:\azcopy" "https://azcopyeasec1sa.blob.core.windows.net/easec" --recursive=true
+azcopy copy "c:\azcopy\bilder\*" "https://azcopyeasec1sa.blob.core.windows.net/easec"
+
 
 ******************************   to sync basec on  last-modified time  *****************************************
 
@@ -28,7 +29,7 @@ C:\azcopy\azcopy.exe sync "c:\azcopy\bilder" "https://azcopyeasec1sa.blob.core.w
 
 schtasks /CREATE /SC minute /MO 1 /TN "AzCopy Script" /TR C:\azcopy\script.bat
 
-******************************   powershell (Ubuntu & Docker  *****************************************
+******************************   powershell (Ubuntu & Docker)  *****************************************
 
 docker run -it --name azpower -v $HOME/labb:/labb mcr.microsoft.com/azure-powershell
 
