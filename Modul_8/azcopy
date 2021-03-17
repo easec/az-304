@@ -1,12 +1,14 @@
-azcopy i katalogen C:\azcopy
+azcopy in folder C:\azcopy
 
-Skapa Storage Account
+Create Storage Account
 
-Skapa container
+Create container
 
-Role Assignments Storage Blob Data Contributor & Storage Blob Data Owner
+Role Assignments Storage Blob Data Contributor & Storage Blob Data Owner on Subscription, Resource Group and Storage Account
 
-Skapa lokal katalog med filer
+Create folder with files
+
+******************************   login with azcopy  *****************************************
 
 azcopy login
 
@@ -20,10 +22,32 @@ azcopy sync "c:\azcopy\bilder" "https://azcopyeasec1sa.blob.core.windows.net/eas
 
 ******************************   script.bat  *****************************************
 
-
+C:\azcopy\azcopy.exe sync "c:\azcopy\bilder" "https://azcopyeasec1sa.blob.core.windows.net/easec" --recursive=true
 
 ******************************   scheduler  *****************************************
 
 schtasks /CREATE /SC minute /MO 1 /TN "AzCopy Script" /TR C:\azcopy\script.bat
 
+******************************   powershell (Ubuntu & Docker  *****************************************
 
+docker run -it --name azpower -v $HOME/labb:/labb mcr.microsoft.com/azure-powershell
+
+******************************   connect  *****************************************
+
+Connect-AzAccount -UseDeviceAuthentication
+
+******************************   set storage  *****************************************
+
+$uploadstorage=Get-AzStorageAccount -ResourceGroupName azcopyRG -Name azcopyeasec1sa
+
+******************************   set context  *****************************************
+
+$storcontext=$uploadstorage.Context
+
+******************************   change directory  *****************************************
+
+cd labb
+
+******************************   copy file  *****************************************
+
+Get-ChildItem -File -Recurse | Set-AzStorageBlobContent -Container "easec" -Context $storcontext
